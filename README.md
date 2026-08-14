@@ -1,59 +1,222 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📅 Booking Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-featured **Booking Management System** built with **Laravel 12** and **PHP 8.2**. The application supports two user roles — **Admin** and **User** — each with their own dashboard for managing bookings, user profiles, and dynamic web pages.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Features
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🔐 Authentication
+- User registration and login
+- Session-based authentication with Laravel middleware
+- Secure logout
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👤 User Role
+- View personal dashboard
+- Create and manage their own bookings
+- View and cancel their bookings
+- Update profile (name, phone number, profile image)
 
-## Learning Laravel
+### 🛠️ Admin Role
+- Access a dedicated admin dashboard
+- View and manage **all bookings** across all users (create, edit, delete)
+- Manage **all users** (create, edit, delete)
+- Manage **dynamic web pages** (create, edit, publish/unpublish)
+- Update admin profile
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 📋 Booking Management
+- Create bookings with name, date/time, and status
+- Booking statuses: **Booked**, **Cancelled**, **Fulfilled**
+- Edit and delete existing bookings
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🌐 Dynamic Web Pages
+- Admin can create custom HTML web pages with a URL slug
+- Pages can be set to **Active** or **Inactive**
+- Pages are publicly accessible via `/page/{slug}`
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🛠️ Tech Stack
 
-### Premium Partners
+| Layer        | Technology             |
+|--------------|------------------------|
+| Framework    | Laravel 12             |
+| Language     | PHP 8.2+               |
+| Database     | MySQL (via XAMPP)      |
+| Frontend     | Blade Templates        |
+| Build Tool   | Vite                   |
+| Auth         | Laravel Session Auth   |
+| Testing      | PHPUnit 11             |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 📁 Project Structure
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+bookingms/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── AuthController.php       # Login, register, logout
+│   │   ├── BookingController.php    # CRUD for bookings
+│   │   ├── UserController.php       # User & admin management, profiles
+│   │   └── WebpageController.php    # Dynamic page management
+│   └── Models/
+│       ├── Bookings.php
+│       ├── User.php
+│       └── WebPage.php
+├── database/migrations/             # All DB schema migrations
+├── resources/views/
+│   ├── AdminDashboard/              # Admin views (Bookings, Users, Pages)
+│   ├── UserDashboard/               # User views (Bookings, Profile)
+│   ├── Auth/                        # Login & Register views
+│   └── Layout/                      # Shared base layouts
+├── routes/web.php                   # All application routes
+└── public/assets/images/            # Static assets
+```
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🚀 Getting Started
 
-## Security Vulnerabilities
+### Prerequisites
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- [PHP 8.2+](https://www.php.net/)
+- [Composer](https://getcomposer.org/)
+- [Node.js & npm](https://nodejs.org/)
+- [XAMPP](https://www.apachefriends.org/) (or any MySQL server)
 
-## License
+### Installation
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**1. Clone the repository**
+```bash
+git clone https://github.com/anushamuhuri7/Booking-Mangagement-System.git
+cd Booking-Mangagement-System
+```
+
+**2. Install PHP dependencies**
+```bash
+composer install
+```
+
+**3. Install Node dependencies**
+```bash
+npm install
+```
+
+**4. Set up environment**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+**5. Configure your database**
+
+Open `.env` and update the database credentials:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=bookingms
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+**6. Run migrations**
+```bash
+php artisan migrate
+```
+
+**7. Build frontend assets**
+```bash
+npm run build
+```
+
+**8. Start the development server**
+```bash
+php artisan serve
+```
+
+Visit `http://127.0.0.1:8000` in your browser.
+
+> **Tip:** You can also use `composer run dev` to run the Laravel server, queue listener, and Vite dev server all at once.
+
+---
+
+## 🗺️ Routes Overview
+
+| Method | URL                   | Description                          | Access      |
+|--------|-----------------------|--------------------------------------|-------------|
+| GET    | `/`                   | Landing / homepage                   | Public      |
+| GET    | `/page/{name}`        | View a dynamic web page              | Public      |
+| GET    | `/login`              | Login page                           | Guest       |
+| POST   | `/login`              | Authenticate user                    | Guest       |
+| GET    | `/signup`             | Registration page                    | Guest       |
+| POST   | `/signup`             | Create new user account              | Guest       |
+| GET    | `/logout`             | Logout current user                  | Auth        |
+| GET    | `/dashboard/admin`    | Admin dashboard                      | Auth        |
+| GET    | `/dashboard/user`     | User dashboard                       | Auth        |
+| GET    | `/booking/all`        | View all bookings (admin)            | Auth        |
+| GET    | `/booking/my`         | View my bookings (user)              | Auth        |
+| GET    | `/booking/add`        | Add a new booking                    | Auth        |
+| POST   | `/booking/save`       | Save new booking                     | Auth        |
+| GET    | `/booking/{id}`       | Edit a booking                       | Auth        |
+| POST   | `/booking/{id}`       | Update a booking                     | Auth        |
+| GET    | `/booking/delete/{id}`| Confirm delete booking               | Auth        |
+| POST   | `/booking/delete/{id}`| Delete a booking                     | Auth        |
+| GET    | `/user/all`           | List all users (admin)               | Auth        |
+| GET    | `/user/profile`       | View/edit own profile                | Auth        |
+| GET    | `/webpage/my`         | List web pages (admin)               | Auth        |
+
+---
+
+## 🗄️ Database Schema
+
+### `users`
+| Column         | Type     | Description                      |
+|----------------|----------|----------------------------------|
+| id             | bigint   | Primary key                      |
+| name           | string   | User's full name                 |
+| email          | string   | Unique email address             |
+| password       | string   | Hashed password                  |
+| phone_no       | string   | Phone number                     |
+| user_type      | smallint | `1` = Admin, `2` = User          |
+| profile_image  | string   | Profile picture path             |
+
+### `bookings`
+| Column           | Type     | Description                                          |
+|------------------|----------|------------------------------------------------------|
+| id               | bigint   | Primary key                                          |
+| name             | string   | Booking name/title                                   |
+| booking_datetime | string   | Date and time of booking                             |
+| status           | smallint | `1` = Booked, `2` = Cancelled, `3` = Fulfilled      |
+| user_id          | integer  | Foreign key to users                                 |
+
+### `web_page`
+| Column     | Type     | Description                        |
+|------------|----------|------------------------------------|
+| id         | bigint   | Primary key                        |
+| name       | string   | Page title                         |
+| slug       | string   | URL-friendly identifier            |
+| html       | text     | Page HTML content                  |
+| status     | smallint | `1` = Active, `0` = Inactive       |
+| created_by | bigint   | User ID of creator                 |
+| updated_by | bigint   | User ID of last editor             |
+
+---
+
+## 🧪 Running Tests
+
+```bash
+composer run test
+```
+
+Or using PHPUnit directly:
+```bash
+php artisan test
+```
+
+---
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
